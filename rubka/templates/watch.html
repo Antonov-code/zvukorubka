@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    {{series.name}}
+{% endblock %}
+
+{% block content %}
+
+    {% include "banner.html" %}
+
+
+<div class="section">
+    <div class="title-block">
+        <h2 class="small-title">Описание</h2>
+    </div>
+    <div class="anime-detail-description">
+        <ul class="anime-detail-description-list">
+            {% if genres %}
+            <li>
+                <b>Жанр: </b>
+                {% for i in genres %}
+                    {{i}}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </li>
+            {% endif %}
+            <li><b>Год выпуска: </b>{{series.year_of_release}}</li>
+            {% if studios %}
+            <li>
+                <b>Студия: </b>
+                {% for i in studios %}
+                    {{i}}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </li>
+            {% endif %}
+            {% if voice_actors %}
+            <li>
+                <b>Актёры озвучки: </b>
+                {% for i in voice_actors %}
+                    {{i}}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </li>
+            {% endif %}
+            <li><b>Длительность: </b>{{series.lasting}}</li>
+            <li><b>Возраст: </b>{{series.age}}+</li>
+        </ul>
+        <div class="anime-detail-description-text">
+            <p>
+                {{series.description}}
+            </p>
+        </div>
+    </div>
+</div>
+
+{% if episodes %}
+<div class="section">
+    <div class="title-block">
+        <h2 class="small-title">{{series.name}} смотреть онлайн</h2>
+    </div>
+    <!-- Плеер -->
+    <div id="player" data-series-name="{{ series.simple_url }}" class="player">
+        <div class="player-nav">
+            <ul class="player-nav-list">
+                <li v-for="episode in episodes" :key="episode.id" @click="changeSeries(episode.iframe)" class="player-nav-list-item">[[ episode.episode_number ]] эпизод</li>
+            </ul>
+        </div>
+        <div class="player-embed">
+            <div class="player-item" id="iframe_container" v-html="iframe">[[ iframe ]]</div>
+        </div>
+    </div>
+
+</div>
+{% else %}
+<div class="section">
+    <div class="title-block">
+        <h2 class="small-title">Пока что не добавлено ни одного эпизода, но мы работаем над этим</h2>
+    </div>
+</div>
+{% endif %}
+
+
+<!-- Блок комментариев -->
+<!-- <div id="comments">
+    <h2>Комментарии</h2>
+    <ul>
+        <li v-for="comment in comments" :key="comment.id">
+            [[ comment.user ]]<br>
+            [[ comment.text ]]
+        </li>
+    </ul>
+</div> -->
+
+<script src="{% static 'scripts/player.js' %}"></script>
+<script src="{% static 'scripts/comments.js' %}"></script>
+
+
+{% include "carusel_all.html" %}
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Главная
+{% endblock %}
+
+
+
+{% block content %}
+
+    <!-- {%for i in all_series%}
+        {{i}}
+    {%endfor%}
+
+    {%for i in all_anime%}
+        {{i}}
+    {%endfor%}
+
+    {%for i in all_podcast%}
+        {{i}}
+    {%endfor%} -->
+
+    {% include "banner.html" %}
+
+
+    {% include "carusel_anime.html" %}
+
+    {% include "carusel_all.html" %}
+
+    {% include "carusel_podcast.html" %}
+
+{% endblock %}

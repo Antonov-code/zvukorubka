@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    О нас
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="about-us-container">
+    <h1 class="about-us-title">Немного о нас</h1><br>
+    <p class="about-us-p">
+        Студия «ЗвукоРубка» – это дальневосточная команда энтузиастов из Хабаровска, объединенная одной целью – дарить
+        любителям кино и анимации незабываемые впечатления от просмотра любимых сериалов, фильмов и аниме. Мы вкладываем душу
+        в каждый проект, делая акцент на качественной и достоверной озвучке.
+    </p><br>
+    <div class="about-us-subtitle">
+        Мы в соцсетях:
+    </div>
+    <ul class="about-us-ul">
+        <li class="about-us-li">Телеграмм: <a href="https://t.me/zvukorubkastudio">https://t.me/zvukorubkastudio</a></li>
+        <li class="about-us-li">Вконтакте: <a href="https://vk.com/club225216832">https://vk.com/club225216832</a></li>
+        <li class="about-us-li">Ютуб канал: <a href="https://www.youtube.com/@zvukorubkastudio">https://www.youtube.com/@zvukorubkastudio</a></li>
+    </ul>
+
+    {% if all_voice_actor %}
+        <h1 class="about-us-title">Наши актёры озвучки:</h1>
+    {% endif %}
+    {%for i in all_voice_actor%}
+    <div class="about-us-actor">
+        <div class="about-us-actor-photo">
+            {% if i.photo %}
+                <img src="{{i.photo.url}}" alt="">
+            {% else %}
+                <img src="{% static 'images/profile-picture.jpg' %}" alt="">
+            {% endif %}
+        </div>
+        <div class="about-us-actor-photo-deskription">
+            <div class="about-us-actor-photo-deskription-name">{{i.name}}</div>
+            <div class="about-us-actor-photo-deskription-bio">{{i.bio}}</div>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+
+{% endblock %}

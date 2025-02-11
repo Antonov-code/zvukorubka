@@ -1,0 +1,25 @@
+<div id="cookie_form">
+    <div v-if="!cookiesAccepted" class="cookie-banner">
+        <p>Мы используем cookie-файлы для улучшения работы сайта. Оставаясь на сайте, вы соглашаетесь с их использованием.</p>
+        <button @click="acceptCookies">Принять</button>
+    </div>
+</div>
+<script>
+    const cookie_form = new Vue({
+        el: '#cookie_form',
+        data() {
+            return {
+                cookiesAccepted: false
+            };
+        },
+        mounted() {
+            this.cookiesAccepted = localStorage.getItem("cookiesAccepted") === "true";
+        },
+        methods: {
+            acceptCookies() {
+                this.cookiesAccepted = true;
+                localStorage.setItem("cookiesAccepted", "true");
+            }
+        }
+    });
+</script>

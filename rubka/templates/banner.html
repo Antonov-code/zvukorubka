@@ -1,0 +1,21 @@
+{% if banners %}
+<main class="section">
+    <div class="banner-big-container">
+        <div class="owl-carousel owl-theme slider catalog-section-items banners-corusel" id="slider">
+            {%for i in banners%}
+                <div class="banner-big-item border-r" style="background-image: url({{i.prev_img.url}});">
+                    <div class="banner-big-content">
+                        <div class="banner-big-content-text">
+                            <h2>{{i.title}}</h1>
+                            <p>{{i.description}}</p>
+                        </div>
+                        <!-- <div class="banner-big-content-text-more">
+                            <a href="#">Подробнее</a>
+                        </div> -->
+                    </div>
+                </div>
+            {%endfor%}
+        </div>
+    </div>
+</main>
+{% endif %}

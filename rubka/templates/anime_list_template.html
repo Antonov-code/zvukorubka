@@ -1,0 +1,31 @@
+<div class="anime-list-container">
+    {% for i in all_series %}
+    <div class="anime-list-item">
+        <div class="anime-list-img">
+            <img src="{{i.prev_img.url}}" alt="">
+        </div>
+        <div class="anime-list-deskription">
+            <a href="/watch/{{i.simple_url}}">
+                <div class="anime-list-deskription-title">{{i.name}} ( {{i.year_of_release}} )</div>
+            </a>
+            <p class="anime-list-deskription-deskription">{{i.description}}</p>
+            {% if i.studio.all %}
+                <p class="anime-list-deskription-item"><b>Студия: </b>
+                {% for studio in  i.studio.all %}
+                    {{ studio.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+                </p>
+            {% endif %}
+            {% if i.genre.all %}
+                <p class="anime-list-deskription-item"><b>Жанры: </b>
+                {% for genre in i.genre.all %}
+                    {{ genre.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+                </p>
+            {% endif %}
+            <p class="anime-list-deskription-item"><b>Возраст: </b>{{i.age}}+</p>
+            <p class="anime-list-deskription-item"><b>Длительность: </b>{{i.lasting}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>

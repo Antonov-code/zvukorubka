@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Сериалы
+{% endblock %}
+
+
+{% block content %}
+
+<div class="section">
+    <div class="title-block">
+        <h2 class="title">Сериалы</h2>
+    </div>
+
+    {% include "anime_list_template.html" %}
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% if all_anime %}
+<div class="section">
+    <div class="title-block">
+        <h2 class="title">Аниме</h2>
+    </div>
+    <div class="">
+        <div class="owl-carousel owl-theme slider catalog-section-items banners-corusel" id="anime_slider">
+            {%for i in all_anime%}
+                <div class="anime-item border-r">
+                    <a href="/watch/{{i.simple_url}}">
+                        <div class="anime-item-img"
+                            style="background-image: url('{{i.prev_img.url}}');">
+                            <div class="anime-item-description">
+                                {{i.description}}
+                            </div>
+                        </div>
+                        <div class="anime-item-title">
+                            {{i.name}}
+                        </div>
+                    </a>
+                </div>
+            {%endfor%}
+
+        </div>
+    </div>
+</div>
+{% endif %}

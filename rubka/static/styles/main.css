@@ -182,6 +182,11 @@ ul {
     transition: .4s;
 }
 
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background: #9d41cf;
+    transition: .5s;
+}
+
 
 
 .title-block {
@@ -259,6 +264,13 @@ ul {
     z-index: 95;
 }
 
+.player-nav-list {
+    max-height: 300px;
+    overflow: auto;
+    height: 500px;
+    width: 150px;
+}
+
 .player-nav-list-item {
     height: 40px;
     background-color: #292929;
@@ -287,6 +299,14 @@ ul {
     padding: 0 0 24px 0;
 }
 
+.player-item > iframe {
+    width: 100% !important;
+    height: 700px !important;
+}
+
+.player-nav-list-item:first-of-type {
+    display: block;
+}
 
 
 
@@ -294,6 +314,7 @@ ul {
 
 
 
+/* FOOTER */
 .footer {
     background-color: #131313;
 }
@@ -331,4 +352,279 @@ ul {
     display: block;
     font-size: 14px;
     padding-top: 16px;
+}
+
+
+
+/* LOGIN PAGE*/
+.login-form-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-form {
+    width: 400px;
+    height: 400px;
+    overflow: auto;
+}
+
+.tabs > input {
+    display: none;
+}
+
+.form {
+    display: none;
+}
+
+.tabs .tab-selector-1:checked ~ .forms .form-1,
+.tabs .tab-selector-2:checked ~ .forms .form-2 {
+    display: block;
+}
+
+.tab-label {
+    display: inline-block;
+    font-size: 28px;
+    padding-bottom: 6px;
+    cursor: pointer;
+    margin-bottom: 12px;
+    width: 200px;
+    text-align: center;
+}
+
+.tabs .tab-selector-1:checked + label,
+.tabs .tab-selector-2:checked + label {
+    border-bottom: 4px solid #b085c7;
+}
+
+.login-form-item > label,
+.login-form-item > input {
+    display: block;
+    width: 100%;
+    margin: 6px 0;
+}
+
+.login-form-item > input {
+    height: 30px;
+    font-size: 18px;
+}
+
+.login-form-item > input:focus {
+    outline: 2px solid #b570da; 
+}
+
+#agreement + label,
+#agreement {
+    display: inline-block;
+    width: auto;
+}
+
+label > a {
+    text-decoration-line: underline;
+}
+
+#agreement {
+    outline: none;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    position: relative;
+    top: 4px;
+}
+
+.login-form-button {
+    width: 100%;
+    font-size: 18px;
+    margin-top: 8px;
+}
+
+.login-form-error {
+    margin-top: 12px;
+    color: #d60303;
+}
+
+/* COOKI FORM */
+.cookie-banner {
+    position: fixed;
+    z-index: 90;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: #222;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cookie-banner > button {
+    background: #7d23ad;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.cookie-banner > button:hover {
+    background: #b570da;
+    transition: .5s;
+}
+
+
+/* 404 PAGE */
+.content-404 {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-404-title > h1 {
+    display: block;
+    text-align: center;
+    font-size: 100px;
+}
+
+.content-404-title > h3 {
+    display: block;
+    text-align: center;
+    font-size: 30px;
+}
+
+/* PROFILE */
+.profile-container {
+    margin-top: 30px;
+}
+.profile-logout-button,
+.profile-login-button {
+    padding: 0 20px;
+    font-size: 16px;
+    background-color: #680505;
+}
+
+.profile-logout-button:hover {
+    background-color: #dd2e2e;
+    transition: .5s;
+}
+
+.profile-login-button {
+    background-color: #b570da;
+}
+
+.profile-login-button:hover {
+    background-color: #8d38bb;
+    transition: .5s;
+}
+
+.profile-button {
+    background-color: #4f365c;
+}
+
+.profile-item {
+    margin: 20px 0;
+}
+
+
+/* ABOUT US */
+.about-us-container {
+    margin: 30px 0;
+}
+
+.about-us-li > a {
+    color: #b570da;
+}
+
+.about-us-li > a:hover {
+    color: #8e3a96;
+}
+
+.about-us-li {
+    margin: 12px 0;
+}
+
+.about-us-subtitle {
+    margin: 12px 0;
+    font-size: 18px;
+}
+
+.about-us-ul {
+    margin-bottom: 24px;
+}
+
+.about-us-actor {
+    background-color: #111111;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    padding: 12px;
+    margin: 12px 0;
+}
+
+.about-us-actor-photo > img {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.about-us-actor-photo-deskription-name {
+    width: 100%;
+    font-size: 24px;
+    margin: 12px 0;
+}
+
+.about-us-actor-photo-deskription-bio {
+    font-size: 16px;
+    overflow: auto;
+}
+
+/* ANIME LISTS */
+.anime-list-container {
+    display: grid;
+    row-gap: 12px;
+}
+
+.anime-list-item {
+    background-color: #111111;
+    border-radius: 4px;
+    padding: 12px;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+}
+
+.anime-list-img > img {
+    width: 150px;
+    height: 220px;
+    object-fit: cover;
+}
+
+.anime-list-deskription-title {
+    font-size: 24px;
+    margin-bottom: 6px;
+}
+
+.anime-list-deskription-title:hover {
+    color: #e8c9f8;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.anime-list-deskription-deskription {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.anime-list-deskription-item {
+    margin-bottom: 6px;
 }

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Популярное
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="section">
+    <div class="title-block">
+        <h2 class="title">Популярное</h2>
+    </div>
+
+    {% include "anime_list_template.html" %}
+</div>
+
+    <!-- {% include "carusel_all.html" %} -->
+
+{% endblock %}

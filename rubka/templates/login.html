@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход/Регистрация</title>
+    {% load static %}
+    {% include "links.html" %}
+</head>
+<body>
+    <div class="wrapper">
+        <div class="login-form-container">
+            <section class="tabs">
+                <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked" />
+                <label for="tab-1" class="tab-label-1 tab-label">Вход</label>
+                <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2" />
+                <label for="tab-2" class="tab-label-2 tab-label">Регистрация</label>
+                <div class="forms">
+
+                <form action="{% url 'login' %}" method="post" class="login-form form-1 form" id="login_form">
+                    <div class="login-form-item">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+                    <div class="login-form-item">
+                        <label for="password">Пароль</label>
+                        <input type="password" name="password" id="password" required>
+                    </div>
+                    {% csrf_token %}
+                    <button type="submit" class="button login-form-button">Войти</button>
+                    <div class="login-form-error">
+                        {{error}}
+                    </div>
+                </form>
+
+                <form action="{% url 'login' %}" method="post" class="login-form  form-2 form" id="register_form">
+                    <div class="login-form-item">
+                        <label for="nickname">Никнейм</label>
+                        <input type="text" name="nickname" id="nickname" required>
+                    </div>
+                    <div class="login-form-item">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+                    <div class="login-form-item">
+                        <label for="password">Пароль</label>
+                        <input type="password" name="password" id="password" required>
+                    </div>
+                    <div class="login-form-item">
+                        <label for="password2">Повторите пароль</label>
+                        <input type="password" name="password2" id="password2" required>
+                    </div>
+                    <div class="login-form-item">
+                        <input type="checkbox" name="agreement" id="agreement" required>
+                        <label for="agreement">Согласие с <a href="{% url 'privacy_policy' %}">политикой конфиденциальности</a></label>
+                    </div>
+                    {% csrf_token %}
+                    <button type="submit" class="button login-form-button">Зарегистрироваться</button>
+                    <div class="login-form-error">
+                        {{error}}
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

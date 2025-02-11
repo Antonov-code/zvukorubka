@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Профиль {{ user.username }}
+{% endblock %}
+
+
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <container class="container profile-container">
+        <div class="profile-item">
+            <h2>Профиль {{ user.nickname }}</h2>
+        </div>
+        <div class="profile-item">
+            <p><strong>Имя:</strong> {{ user.nickname }}</p>
+        </div>
+        <div class="profile-item">
+            <p><strong>Email:</strong> {{ user.email }}</p>
+        </div>
+
+        {% if user.profile_img %}
+            <img src="{{ user.profile_img.url }}" alt="Аватар" width="150">
+        {% else %}
+            <!-- <p>Нет изображения</p> -->
+        {% endif %}
+
+        <a href="{% url 'logout' %}">
+            <button  class="button profile-logout-button">
+                Выйти
+            </button>
+        </a>
+    </container>
+    {% else %}
+    <container class="container profile-container">
+        <a href="{% url 'login' %}">
+            <button  class="button profile-login-button">
+                Войти
+            </button>
+        </a>
+    </container>
+    {% endif %}
+{% endblock %}
